@@ -1,0 +1,4 @@
+rdr on en0 inet proto tcp from 10.0.10.131 to any port www -> 10.0.10.99 port 8090
+rdr on en0 inet proto tcp from 10.0.10.131 to any port 443 -> 10.0.10.99 port 8091
+rdr on en0 inet proto tcp from 10.0.10.132 to any port www -> 10.0.10.99 port 8090
+rdr on en0 inet proto tcp from 10.0.10.132 to any port 443 -> 10.0.10.99 port 8091
