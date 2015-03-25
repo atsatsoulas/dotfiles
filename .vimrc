@@ -63,6 +63,10 @@ set tabstop=4       " tab width
 set softtabstop=4   " backspace
 set shiftwidth=4    " indent width
 set expandtab       " expand tab to space
+set listchars=tab:▸\ ,eol:¬
+
+" Enable file type detection
+filetype on
 
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
@@ -71,11 +75,8 @@ autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType go setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 
+autocmd FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 autocmd FileType go noremap <buffer> <c-f> :GoFmt<cr>
-
-" Enable file type detection
-filetype on
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
