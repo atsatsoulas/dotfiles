@@ -50,7 +50,10 @@ set nobackup
 set noswapfile
 set laststatus=2
 let $PATH='/Users/darky/Projects/playground/golang/bin:' . $PATH
-colorscheme molokai
+
+colorscheme lucius
+LuciusDark
+
 function! SetupEnvironment()
   let l:path = expand('%:p')
   if l:path =~ '/Users/darky/Projects/playground/golang/src/darky.org/estatesrv/src'
@@ -67,8 +70,16 @@ set smartcase
 set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
+" Highlight current line - allows you to track cursor position more easily
+set cursorline
 
+" Completion options (select longest + show menu even if a single match is found)
+set completeopt=longest,menuone
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+" Close all the buffers
 
+map <leader>bda :1,1000 bd!<cr>
 " Default Indentation
 set autoindent
 set smartindent     " indent when
@@ -93,6 +104,15 @@ autocmd FileType go noremap <buffer> <c-f> :GoFmt<cr>
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
+"------------------------------------------------------------------------------
+" BufExplorer
+"------------------------------------------------------------------------------
+
+" Shortcuts, type <leader>l to quickly navigate to necessary buffer
+
+map <leader>l :BufExplorer<cr>
+imap <leader>l <esc>:BufExplorer<cr>
+vmap <leader>l <esc>:BufExplorer<cr>
 
 " ctrlp
 set wildignore+=*/tmp/*,*.exe,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
@@ -157,6 +177,12 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+
+".vimrc
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 
 " for macvim
